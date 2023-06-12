@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+
+{% block app_content %}
+    <body class="text-center">
+        <form class="form-signin" method="post" action="">
+            <img class="mb-4" src="static/ItemFinder.png", alt="", height="200">
+            <br><br>
+            <div class="container">
+<div class='card'>
+                <div class="col-md-4 col-md-offset-4">
+
+                  {{ form.hidden_tag() }}
+                  {{ wtf.form_errors(form, hiddens="only") }}
+
+                  {{ wtf.form_field(form.username, class="form-control", placeholder="Username") }}
+                  {{ wtf.form_field(form.password, placeholder="Password") }}
+                  <div class="checkbox mb-3">
+                      {{ wtf.form_field(form.remember_me) }}
+                  </div>
+                    {{ wtf.form_field(form.submit, class="btn btn-lg btn-primary btn-block") }}
+
+                </form>
+                <br>
+                <p>{{ _('New User?') }} <a href="{{ url_for('register') }}">{{ _('Click to Register!') }}</a></p>
+                <p>
+                    {{ _('Forgot Your Password?') }}
+                    <a href="{{ url_for('reset_password_request') }}">{{ _('Click to Reset It') }}</a>
+                </p>
+            </div>
+            </div>
+        </div>
+    </body>
+{% endblock %}
+
+{% block styles %}
+
+{{super()}}
+<style>
+  .control-label {display: none;}
+</style>
+{% endblock %}

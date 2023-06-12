@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+    <p><h4>{{ _("Add things you're searching for on ebay and be notified via email when any are close to closing at auction.") }}</h4>
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+
+    <button onclick="myFunction()" class="btn btn-info" style="float: right;">Settings</button>
+
+    <div id="myDIV">
+        <br><br>
+        <div class="row">
+            <div class="col-md-4">
+                {{ wtf.quick_form(form2) }}
+            </div>
+        </div>
+    </div>
+
+    <br><br><br>
+    {% for ebay in ebays %}
+        {% include '_ebay_keywords.html' %}
+    {% endfor %}
+    </p>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+document.getElementById("myDIV").style.display = "none";
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+{% endblock %}
+

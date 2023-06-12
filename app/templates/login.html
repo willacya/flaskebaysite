@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+
+{% block app_content %}
+    <body class="text-center">
+        <form class="form-signin" method="post" action="">
+            <img class="mb-4" src="static/ItemFinder.png", alt="", height="200">
+            <br><br>
+            <div class="container">
+
+                <div class="col-md-4 col-md-offset-4">
+
+                  {{ form.hidden_tag() }}
+                  {{ wtf.form_errors(form, hiddens="only") }}
+
+                  {{ wtf.form_field(form.username, class="form-control", placeholder="Username") }}
+                  {{ wtf.form_field(form.password, placeholder="Password") }}
+                  <div class="checkbox mb-3">
+                      {{ wtf.form_field(form.remember_me) }}
+                  </div>
+                    {{ wtf.form_field(form.submit, class="btn btn-lg btn-primary btn-block") }}
+
+                </form>
+                <br>
+                <p>{{ _('New User?') }} <a href="{{ url_for('register') }}">{{ _('Click to Register!') }}</a></p>
+                <p>
+                    {{ _('Forgot Your Password?') }}
+                    <a href="{{ url_for('reset_password_request') }}">{{ _('Click to Reset It') }}</a>
+                </p>
+            </div>
+        </div>
+
+
+        <p>or sign in with:</p>
+             </a>
+<!--        <a href="{{ url_for('oauth_authorize', provider='google') }}" type="button" class="btn-floating btn-tw btn-sm"> -->
+        <i class="fab fa-twitter"><img class="mb-4" src="static/googlelogo.png", alt="", height="40"></i>
+      </a>
+      <a href="{{ url_for('oauth_authorize', provider='facebook') }}" type="button" class="btn-floating btn-fb btn-sm">
+        <i class="fab fa-facebook-f"><img class="mb-4" src="static/fblogo.png", alt="", height="40"></i>
+      </a>
+<!--      <a href="{{ url_for('oauth_authorize', provider='twitter') }}" type="button" class="btn-floating btn-tw btn-sm"> -->
+        <i class="fab fa-twitter"><img class="mb-4" src="static/twitterlogo.png", alt="", height="40"></i>
+
+
+    </body>
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<style>
+
+
+  .control-label {display: none;}
+</style>
+{% endblock %}

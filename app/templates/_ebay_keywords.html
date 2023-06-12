@@ -1,0 +1,27 @@
+    <table class="table table-hover">
+        <tr>
+            <td>
+                    <b>{{ ebay.keyword }}</b>
+                    <br>Price Range:  £{{ ebay.minAmount }} - £{{ ebay.maxAmount }}
+                    {% if ebay.deadline == None %}
+                    <br>Email Notice Period: 1.5 Hours
+                    {% else %}
+                    <br>Email Notice Period: {{ user.deadline }} Hours
+                    {% endif %}
+
+                    {% if ebay.driveTime == None %}
+                    <br>Distance (in drive time): Not Specified
+                    {% elif ebay.driveTime == 1 %}
+                    <br>Distance (in drive time): 1 hr
+                    {% else %}
+                    <br>Distance (in drive time): {{ user.driveTime }} hr(s).
+                    {% endif %}
+
+            </td>
+            <td style="text-align:right">
+                <a href="{{ url_for('deleteEbayItem', keyword=ebay.keyword) }}">
+                    Click to remove
+                </a>
+            </td>
+        </tr>
+    </table>
