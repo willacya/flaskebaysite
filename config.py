@@ -18,20 +18,7 @@ class Config(object):
     FLASK_DEBUG = 1
 
 
-    OAUTH_CREDENTIALS = {
-    'facebook': {
-        'id': '720828078682986',
-        'secret': '22d95db2f12fd025b13b308c879797c8'
-    },
-    'twitter': {
-        'id': 'flsLoSdNSbeWXdWx3qzrvwkOO',
-        'secret': 'uf42rzv4hUck3ybLSrCmqX8r0iTtX3JsCSzcYchMBbQdmKIICH'
-    },
-    'google': {
-        'id': '407204583184-vnvl8kbv8170d25oinnmvgakc496vti9.apps.googleusercontent.com',
-        'secret': '6bRuA2hB-AB0xsIViVRtpuZv'
-    }
-    }
+'''Personal Drive keys paste here'''
 
 
 '''class Config(object):
