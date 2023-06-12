@@ -65,7 +65,7 @@ def driving_time(x):
     else:
         return str(int(x/60)) + " hr " + str(int(x%60)) + " mins away."
 
-apiKey = 'AIzaSyBbxKRbmdMkeBh2FOkbH5QW3IFTTrmg3IY'
+apiKey = FIND IN PERSONAL DRIVE YAML
 
 def ebay_results(misspelling, keyword, user):
 
